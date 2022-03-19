@@ -253,7 +253,7 @@ https://www.tooplate.com/view/2115-marvel
         $.get("./headline.json", function (obj) {
           var str = "<table border=1>";
 
-          str += "<tr><td>No</td><td>Judul Berita</td><td>Kategori</td><td>Waktu dipublish</td><td>Waktu discrapping</td></tr>";
+          str += "<tr><td>No</td><td>Judul Berita</td><td>Kategori</td><td>Waktu Publish</td><td>Waktu Scraping</td></tr>";
 
           $.each(obj, function (n, data) {
             str += "<tr><td>" + (n + 1) + "</td>";
