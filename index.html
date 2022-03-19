@@ -273,7 +273,33 @@ https://www.tooplate.com/view/2115-marvel
 	</div>
     </section>
 		
-    
+    <!-- DATA SCRAPING II -->
+    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+	<div class="container">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $.get("./rank_scraping.json", function (obj) {
+          var str = "<table border=1>";
+
+          str += "<tr><td>Rank</td><td>Image</td><td>Idol</td><td>Group</td><td>Scraping Time</td></tr>";
+
+          $.each(obj, function (n, data) {
+            str += "<tr><td>" +data.rank+ "</td>";
+            str += "<td><img src='" + data.image + "'></td>";
+            str += "<td>" + data.nama + "</td>";
+            str += "<td>" + data.group + "</td>";
+            str += "<td>" + data.scraping + "</td></tr>";
+          });
+
+          str += "</table>";
+          $("#rank_scraping_json").html(str);
+        });
+      });
+    </script>
+      <h1>TOP 100 KPOP IDOLS RANKING 2020</h1>
+      <div id="rank_scraping_json"></div>
+    </section>
 
     <!-- CONTACT -->
     <section class="contact py-5" id="contact">
