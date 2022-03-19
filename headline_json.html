@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Membaca File Json</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $.get("./headline.json", function (obj) {
+          var str = "<table border=1>";
+
+          str += "<tr><th>No</th><th>Judul</th><th>Kategori</th><th>Waktu Publish</th><th>Waktu Scraping</th></tr>";
+
+          $.each(obj, function (n, data) {
+            str += "<tr><td>" + (n + 1) + "</td>";
+            str += "<td>" + data.judul + "</td>";
+			str += "<td>"+data.kategori+"</td>";
+			str += "<td>"+data.publish+"</td>";
+			str += "<td>"+"Monday 14 Mar 2022 16 08 55"+</td></tr>";
+          });
+
+          str += "</table>";
+          $("#headline_json").html(str);
+        });
+      });
+    </script>
+  </head>
+  <body>
+      <h1> Berita Terkini </h1>
+      <div id="headline_json"></div>
+  </body>
+</html>
