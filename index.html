@@ -243,33 +243,31 @@ https://www.tooplate.com/view/2115-marvel
 	
 	<!-- FEATURES -->
     <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+	<div class="container">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $.get("./headline.json", function (obj) {
+          var str = "<table border=1>";
 
-				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-				<script type="text/javascript">
-				$(function () {
-					$.get("./headline.json", function (obj) {
-					var str = "<table border=1>";
+          str += "<tr><td>No</td><td>Judul Berita</td><td>Kategori</td><td>Waktu dipublish</td><td>Waktu discrapping</td></tr>";
 
-					str += "<tr><th>No</th><th>Judul</th><th>Kategori</th><th>Waktu Publish</th><th>Waktu Scraping</th></tr>";
+          $.each(obj, function (n, data) {
+            str += "<tr><td>" + (n + 1) + "</td>";
+            str += "<td>" + data.judul + "</td>";
+            str += "<td>" + data.kategori + "</td>";
+            str += "<td>" + data.publish + "</td>";
+            str += "<td>" + data.scrapping + "</td></tr>";
+          });
 
-					$.each(obj, function (n, data) {
-						str += "<tr><td>" + (n + 1) + "</td>";
-						str += "<td>" + data.judul + "</td>";
-						str += "<td>"+data.kategori+"</td>";
-						str += "<td>"+data.publish+"</td>";
-						str += "<td>"+data.scrapping"</td></tr>";
-					});
-
-					str += "</table>";
-					$("#headline_json").html(str);
-					});
-				});
-				</script>
-			<body>
-				<h1> Berita Terkini </h1>
-				<div id="headline_json"></div>
-			</body>
-		</html>
+          str += "</table>";
+          $("#headline_json").html(str);
+        });
+      });
+    </script>
+        <h1> Berita Terkini </h1>
+        <div id="headline_json"></div>
+	</div>
     </section>
 
     <!-- CONTACT -->
